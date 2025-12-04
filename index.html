@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java Multiplayer Chess – Project Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Java Chess Game Project</h1>
+        <p class="subtitle">COP 4331 – Object-Oriented Programming</p>
+    </header>
+
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#features">Features</a>
+        <a href="#usecases">Use Cases</a>
+        <a href="#team">Team</a>
+        <a href="#demo">Demo</a>
+    </nav>
+
+    <section id="overview">
+        <h2>📌 Project Overview</h2>
+        <p>
+            This is a full chess game built in Java. It supports local multiplayer, online games with friends,
+            and an AI opponent using the Stockfish engine. The app follows MVC, has a JavaFX GUI, and uses
+            Firebase for user accounts, profiles, and a friends system with real-time updates.
+        </p>
+
+        <div class="card">
+            <h3>Purpose</h3>
+            <p>
+                The goal was to build a full object-oriented chess application from scratch, practice design
+                patterns, and connect a real chess engine and online features. It's meant to feel like a complete
+                chess app, not just a small school demo.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Technology Stack</h3>
+            <ul>
+                <li>Java (game logic + backend)</li>
+                <li>JavaFX (GUI with board and screens)</li>
+                <li>Firebase (auth + real-time data for users and friends)</li>
+                <li>Stockfish Chess Engine (AI opponent)</li>
+                <li>Maven project structure</li>
+                <li>JUnit + JavaDoc</li>
+                <li>MVC architecture</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Design & Architecture</h3>
+            <p>
+                The project uses a clear model layer for pieces, board, and game state. FEN notation is used
+                for board serialization. The code follows MVC and uses several design patterns:
+            </p>
+            <ul>
+                <li><strong>Decorator</strong> – chain move validation checks</li>
+                <li><strong>Observer</strong> – update UI and other parts when the game state changes</li>
+                <li><strong>Template Method</strong> – support different game modes (local, online, vs AI)</li>
+                <li><strong>Adapter</strong> – connect to the Stockfish engine</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Testing & Documentation</h3>
+            <p>
+                I wrote JUnit tests for core game logic like piece movement, coordinates, and move validation.
+                I also generated JavaDoc (100+ HTML pages) for all major classes and methods.
+            </p>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>✨ Main Features</h2>
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <h3>♟ Full Chess Rules</h3>
+                <p>
+                    Supports all normal chess moves, including castling, en passant, and pawn promotion.
+                    Uses FEN notation to save and restore board positions.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎮 Local & Online Games</h3>
+                <p>
+                    Play locally on the same machine or online with friends. Different game modes are handled
+                    using a shared base flow (Template Method pattern).
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🤖 Play vs AI</h3>
+                <p>
+                    Play against the Stockfish chess engine. The Adapter pattern is used to connect my Java
+                    code to the engine.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🔐 User Accounts & Friends</h3>
+                <p>
+                    Firebase handles login, signup, and user profiles. There is a friends system with requests,
+                    friend lists, and real-time updates.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📜 Move History & Stats</h3>
+                <p>
+                    Tracks move history, game results, timers, and basic player stats. Makes it easy to see
+                    what happened in past games.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>💾 Save & Load Games</h3>
+                <p>
+                    A separate persistence layer handles saving and loading games and user-related data so
+                    it doesn't mix with the game logic or UI code.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="usecases">
+        <h2>📘 Use Cases</h2>
+
+        <div class="card">
+            <h3>Play Local Game Use Case</h3>
+            <ol>
+                <li>User logs in or continues as a local player.</li>
+                <li>User chooses "Local Game" from the main menu.</li>
+                <li>User picks colors and time settings (if needed).</li>
+                <li>The system creates a new game and shows the chess board.</li>
+                <li>Both players take turns moving pieces on the same machine.</li>
+                <li>At the end, the result is stored and stats are updated.</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h3>Play Online Game Use Case</h3>
+            <ol>
+                <li>User logs in with their Firebase account.</li>
+                <li>User opens the Friends / Online Game section.</li>
+                <li>User invites a friend or accepts an invite.</li>
+                <li>The system sets up a shared game state using Firebase.</li>
+                <li>Both players see moves update in real time.</li>
+                <li>Game result is saved and shown in history and stats.</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h3>Play vs AI Use Case</h3>
+            <ol>
+                <li>User chooses "Play vs AI" mode.</li>
+                <li>User picks color and time settings.</li>
+                <li>The system starts a game and connects to Stockfish.</li>
+                <li>User makes a move; the Adapter sends the position to Stockfish.</li>
+                <li>Stockfish returns a move, and the game state updates.</li>
+                <li>Result is saved and can be viewed later.</li>
+            </ol>
+        </div>
+
+    </section>
+
+    <section id="team">
+        <h2>👥 Team Members</h2>
+        <ul>
+            <li><strong>Team Member 1</strong></li>
+            <li><strong>Team Member 2</strong></li>
+            <li><strong>Team Member 3</strong></li>
+            <li><strong>Team Member 4</strong></li>
+        </ul>
+        <!-- Replace with your real names or just your own name if it was a solo project -->
+    </section>
+
+    <section id="demo">
+        <h2>🎬 Demo Video</h2>
+        <p>Watch the project demo video to see the chess game in action.</p>
+
+        <!-- Replace the href with your real demo link -->
+        <p>
+            <a href="https://www.youtube.com/" target="_blank">
+                Watch the demo on YouTube
+            </a>
+        </p>
+    </section>
+
+    <footer>
+        <p>FAU COP4331 - Project Showcase</p>
+    </footer>
+
+</body>
+
+</html>
